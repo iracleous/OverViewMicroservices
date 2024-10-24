@@ -1,4 +1,5 @@
 using Microsoft.Extensions.DependencyInjection;
+using OrderService.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -9,6 +10,9 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+
+// Register the DistributedTransactionService
+builder.Services.AddScoped<DistributedTransactionService>();
 
 
 var apiSettings = builder.Configuration.GetSection("ApiSettings");
